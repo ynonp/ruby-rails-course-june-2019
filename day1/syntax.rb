@@ -5,7 +5,8 @@
 # √. Operators
 # √. Loops / If
 #
-# 8. Arrays / Hash
+# √. Arrays / Hash
+# 9. Files
 # 5. Functions
 # 3. Classes
 # 7. Loading external files
