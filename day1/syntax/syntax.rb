@@ -6,10 +6,12 @@
 # √. Loops / If
 #
 # √. Arrays / Hash
-# 9. Files
+# √. Files
 # 5. Functions
 # 3. Classes
 # 7. Loading external files
+# 8. Error handling
+# 9. Gems
 #
 
 ## Variables
