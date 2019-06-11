@@ -1,0 +1,19 @@
+<h1>Files#index</h1>
+
+<ul>
+  <% @files.each do |filename| %>
+  <li>
+    <%= link_to(
+            basename(filename),
+            files_show_path(filename: basename(filename))
+        ) %>
+    <%= link_to 'Delete',
+        files_destroy_path(filename: basename(filename)),
+        method: :delete,
+        data: { confirm: 'Are you sure?' }
+    %>
+
+  </li>
+  <%  end %>
+
+</ul>

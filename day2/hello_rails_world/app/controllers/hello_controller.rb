@@ -13,6 +13,9 @@ class HelloController < ApplicationController
     q = params[:q] || ''
 
     @items = @items.filter { |w| w.include?(q) }
+
+    # Can render another view
+    render :index
   end
 
   def click
