@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+
+  # resources :files, only: [:index, :show, :destroy]
   get 'files/index'
   get 'files/show'
   match 'files/destroy', via: :delete
