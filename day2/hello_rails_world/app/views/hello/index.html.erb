@@ -1,0 +1,15 @@
+<h1>Hello <%=  @name %></h1>
+<p>1 + 1 = <%= 1 + 1 %></p>
+<p>Now id <%= DateTime.new.to_formatted_s %></p>
+
+<h1>Days</h1>
+<ul>
+  <% @items.each do |day| %>
+    <li><%=  day %></li>
+  <% end %>
+
+</ul>
+
+<p><%= @items %></p>
+
+<p>@name</p>

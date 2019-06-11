@@ -69,7 +69,7 @@ class Unit
     other.prev = self unless other.nil?
   end
 end
-
-p = Polymer.new(File.read('polymer.txt'))
-p.collapse!
-puts p.units_count
+#
+# p = Polymer.new(File.read('polymer.txt'))
+# p.collapse!
+# puts p.units_count
