@@ -45,8 +45,10 @@ class DemosTest < ApplicationSystemTestCase
     destroy_link = find("a[href=\"#{files_destroy_path(filename: 'f1.txt')}\"")
     destroy_link.click
     accept_alert
-    fname = 'f1.txt'
+
     assert_no_selector('li', text: 'f1.txt')
+
+    fname = 'f1.txt'
     refute(File.file?(Rails.configuration.files_base.join(fname)))
   end
 
