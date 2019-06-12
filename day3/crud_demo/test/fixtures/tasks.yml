@@ -1,13 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  owner: MyString
-  description: MyText
+completed_task:
+  owner: ynon
+  description: completed work
   priority: 1
-  completed: 1
+  completed: true
 
-two:
-  owner: MyString
-  description: MyText
+unfinished_task:
+  owner: ynon
+  description: unfinished
   priority: 1
-  completed: 1
+  completed: false

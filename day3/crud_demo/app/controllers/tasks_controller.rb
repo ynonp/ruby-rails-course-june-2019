@@ -4,7 +4,14 @@ class TasksController < ApplicationController
   # GET /tasks
   # GET /tasks.json
   def index
-    @tasks = Task.all
+    filter = params[:completed]
+    @tasks = if filter.nil?
+               Task.all
+             elsif filter == "0"
+               Task.in_progress
+             elsif filter == "1"
+               Task.completed
+             end
   end
 
   # GET /tasks/1
