@@ -1,10 +1,14 @@
 class Task < ApplicationRecord
   scope :completed, -> { where(completed: true )}
   scope :in_progress, -> { where(completed: false )}
+  belongs_to :user
+
+  has_many :tag_tasks
+  has_many :tags, through: :tag_tasks
+
 
   validate :no_bad_words_in_description
 
-  validates :owner, presence: true, length: { minimum: 2 }
   validates :priority, numericality: {
       greater_than_or_equal_to: 0,
       less_than_or_equal_to: 5,

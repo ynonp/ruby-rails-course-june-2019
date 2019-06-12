@@ -10,13 +10,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_12_100151) do
+ActiveRecord::Schema.define(version: 2019_06_12_105849) do
+
+  create_table "tag_tasks", force: :cascade do |t|
+    t.integer "tag_id"
+    t.integer "task_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["tag_id"], name: "index_tag_tasks_on_tag_id"
+    t.index ["task_id"], name: "index_tag_tasks_on_task_id"
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "tasks", force: :cascade do |t|
-    t.string "owner", null: false
     t.text "description"
     t.integer "priority", default: 1
     t.boolean "completed", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_tasks_on_user_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "name"
+    t.string "favorite_color", default: "#ccc"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
