@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  owner: System
+  description: go fish
+  completed: false
+
+unfinished_system_task:
+  owner: System
+  description: go fish
+  completed: false
+
+
+two:
+  owner: System
+  description: turn off the lights
+  completed: false
+
+three:
+  owner: ynon
+  description: yay
+  completed: false
+
