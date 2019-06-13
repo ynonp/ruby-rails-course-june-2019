@@ -1,6 +1,7 @@
 class Task < ApplicationRecord
   scope :completed, -> { where(completed: true )}
   scope :in_progress, -> { where(completed: false )}
+
   belongs_to :user
 
   has_many :tag_tasks
@@ -21,4 +22,19 @@ class Task < ApplicationRecord
       errors.add(:base, "Sorry python is not allowed")
     end
   end
+
+  def comments_with_usernames
+    comments.joins(:user).select('comments.*, users.name as username')
+  end
 end
+
+
+
+
+
+
+
+
+
+
+

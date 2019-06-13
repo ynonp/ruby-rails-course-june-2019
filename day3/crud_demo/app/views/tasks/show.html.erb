@@ -17,9 +17,10 @@
 
 <h2>Comments</h2>
 <ul>
-  <% @task.comments.each do |comment| %>
-    <li><b><%= comment.user.name %></b>: <%= comment.text %></li>
-  <%  end %>
+  <%= render partial: 'task_comment',
+             collection: @comments,
+             as: :comment
+  %>
 </ul>
 
 <%= link_to 'Edit', edit_task_path(@task) %> |
