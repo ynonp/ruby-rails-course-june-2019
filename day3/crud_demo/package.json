@@ -1,5 +1,7 @@
 {
   "name": "crud_demo",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "jquery": "^3.4.1"
+  }
 }
