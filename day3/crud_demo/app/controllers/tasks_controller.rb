@@ -4,6 +4,8 @@ class TasksController < ApplicationController
   # GET /tasks
   # GET /tasks.json
   def index
+    authorize! :index, Task
+
     filter = params[:completed]
     @tasks = if filter.nil?
                Task.all
@@ -12,27 +14,33 @@ class TasksController < ApplicationController
              elsif filter == "1"
                Task.completed
              end
+
+    @tasks = @tasks.with_username.with_comments_count
   end
 
   # GET /tasks/1
   # GET /tasks/1.json
   def show
+    authorize! :show, @task
     @comments = @task.comments_with_usernames
   end
 
   # GET /tasks/new
   def new
+    authorize! :create, Task
     @task = Task.new
   end
 
   # GET /tasks/1/edit
   def edit
+    authorize! :edit, @task
   end
 
   # POST /tasks
   # POST /tasks.json
   def create
-    @task = Task.new(task_params)
+    authorize! :create, Task
+    @task = Task.new(task_params.merge(user: current_user))
 
     respond_to do |format|
       if @task.save
@@ -48,6 +56,7 @@ class TasksController < ApplicationController
   # PATCH/PUT /tasks/1
   # PATCH/PUT /tasks/1.json
   def update
+    authorize! :update, @task
     respond_to do |format|
       if @task.update(task_params)
         format.html { redirect_to @task, notice: 'Task was successfully updated.' }
@@ -62,6 +71,7 @@ class TasksController < ApplicationController
   # DELETE /tasks/1
   # DELETE /tasks/1.json
   def destroy
+    authorize! :destroy, @task
     @task.destroy
     respond_to do |format|
       format.html { redirect_to tasks_url, notice: 'Task was successfully destroyed.' }
@@ -77,6 +87,23 @@ class TasksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def task_params
-      params.require(:task).permit(:owner, :description, :priority, :completed)
+      params.require(:task).permit(
+          :owner,
+          :description,
+          :priority,
+          :completed,
+      )
     end
 end
+
+
+
+
+
+
+
+
+
+
+
+

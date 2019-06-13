@@ -3,7 +3,9 @@
 system:
   name: system
   favorite_color: MyString
+  email: system@gmail.com
 
 user:
   name: user
   favorite_color: MyString
+  email: user@gmail.com

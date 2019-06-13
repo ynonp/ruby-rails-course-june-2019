@@ -1,12 +1,14 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 completed_task:
+  id: 5
   description: completed work
   priority: 1
   completed: true
   user: system
 
 unfinished_task:
+  id: 7
   description: unfinished
   priority: 1
   completed: false

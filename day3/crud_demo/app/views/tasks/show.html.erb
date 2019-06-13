@@ -23,5 +23,7 @@
   %>
 </ul>
 
-<%= link_to 'Edit', edit_task_path(@task) %> |
+<% if can? :edit, @task %>
+  <%= link_to 'Edit', edit_task_path(@task) %> |
+<% end %>
 <%= link_to 'Back', tasks_path %>

@@ -1,6 +1,12 @@
 class Task < ApplicationRecord
   scope :completed, -> { where(completed: true )}
   scope :in_progress, -> { where(completed: false )}
+  scope :with_username, -> { joins(:user).select('tasks.*, users.name as user_name')}
+  scope :with_comments_count, -> do
+    left_joins(:comments)
+        .select('tasks.*, count(comments.id) as comments_count')
+        .group('tasks.id')
+  end
 
   belongs_to :user
 

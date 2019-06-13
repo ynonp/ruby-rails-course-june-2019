@@ -9,6 +9,7 @@
       <th>Description</th>
       <th>Priority</th>
       <th>Completed</th>
+      <th>Comments Count</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -20,12 +21,18 @@
   <tbody>
     <% @tasks.each do |task| %>
       <tr class="task-line">
+        <td><%= task.user_name %></td>
         <td><%= task.description %></td>
         <td><%= task.priority %></td>
         <td><%= task.completed %></td>
-        <td><%= link_to 'Show', task %></td>
-        <td><%= link_to 'Edit', edit_task_path(task) %></td>
-        <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= task.comments_count %></td>
+        <td><%= link_to task.id, task %></td>
+        <% if can? :edit, task %>
+          <td><%= link_to 'Edit', edit_task_path(task) %></td>
+        <% end  %>
+        <% if can? :destroy, task %>
+          <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
