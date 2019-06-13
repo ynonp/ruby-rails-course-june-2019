@@ -19,8 +19,7 @@ class Ability
   def signed_in_user(user)
     guest_user
     can :create, Task
-    can :edit, Task, user_id: user.id
-    can :destroy, Task, user_id: user.id
+    can [:edit, :destroy], Task, user_id: user.id
   end
 end
 

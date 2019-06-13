@@ -26,6 +26,18 @@
     <%= form.check_box :completed %>
   </div>
 
+  <h2>Comments</h2>
+
+  <% task.comments.each do |comment| %>
+    <%= form.fields_for(:comments, comment) do |comment_form| %>
+      <div class="field">
+        <%= comment_form.label :text %>
+        <%= comment_form.text_field :text %>
+      </div>
+    <% end %>
+  <%  end %>
+
+
   <div class="actions">
     <%= form.submit %>
   </div>
