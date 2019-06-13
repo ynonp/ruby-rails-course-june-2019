@@ -6,8 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-u1 = User.create(name: 'demo', favorite_color: 'blue')
-u2 = User.create(name: 'system', favorite_color: 'red')
+u1 = User.create(name: 'demo', favorite_color: 'blue', email: 'demo@gmail.com', password: '10203040')
+u2 = User.create(name: 'system', favorite_color: 'red', email: 'system@gmail.com', password: 'secret')
 
 red = Tag.create(name: 'red')
 blue = Tag.create(name: 'blue')
