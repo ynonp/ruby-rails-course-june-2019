@@ -16,6 +16,12 @@ class TasksTest < ApplicationSystemTestCase
 
     click_on "All Tasks"
     assert_selector('.task-line', count: 2)
+  end
 
+  test "show comments in tasks" do
+    visit task_url(id: tasks(:unfinished_task).id)
+    assert_selector('li b', text: 'system', count: 2)
+    assert_selector('li', text: 'comment one')
+    assert_selector('li', text: 'comment two')
   end
 end

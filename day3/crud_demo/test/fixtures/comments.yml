@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+c2:
+  task: unfinished_task
+  user: system
+  text: "comment one"
+
+c1:
+  task: unfinished_task
+  user: system
+  text: "comment two"

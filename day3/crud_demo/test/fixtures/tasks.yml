@@ -1,13 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 completed_task:
-  owner: ynon
   description: completed work
   priority: 1
   completed: true
+  user: system
 
 unfinished_task:
-  owner: ynon
   description: unfinished
   priority: 1
   completed: false
+  user: system

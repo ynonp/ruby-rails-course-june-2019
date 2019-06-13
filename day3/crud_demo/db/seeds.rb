@@ -17,4 +17,6 @@ t2 = Task.create(description: 'Turn on the lights', priority: 2, user_id: u1.id)
 t3 = Task.create(description: 'go fish', priority: 2, user_id: u1.id)
 t4 = Task.create(description: 'say hi', priority: 2, user_id: u1.id)
 
-
+c1 = Comment.create(user: u2, task: t1, text: 'very important')
+c1 = Comment.create(user: u2, task: t1, text: 'and again')
+c3 = Comment.create(user: u1, task: t2, text: 'bye bye')

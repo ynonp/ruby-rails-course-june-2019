@@ -1,9 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
+system:
+  name: system
   favorite_color: MyString
 
-two:
-  name: MyString
+user:
+  name: user
   favorite_color: MyString
